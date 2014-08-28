@@ -2,7 +2,7 @@
 	/*
 		Victoria Hodnett
 		August 28, 2014
-		Purpose: Assignment 1, Script 1.2
+		Purpose: Assignment 1, Script 1.3
 	*/
 ?>
 
@@ -10,14 +10,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Basic PHP Page</title>
+<title>Using Echo</title>
 </head>
 
 <body>
-	<!-- Script 1.2 - first.php -->
+	<!-- Script 1.3 - second.php -->
     <p>This is standard HTML.</p>
 	
 	<?php
+    	echo 'This was generated using PHP!';
     ?>
 </body>
 </html>
