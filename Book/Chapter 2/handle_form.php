@@ -20,16 +20,17 @@
 	$name = $_REQUEST['name'];
 	$email = $_REQUEST['email'];
 	$comments = $_REQUEST['comments'];
+	$age = $_REQUEST['age'];
+	$gender = $_REQUEST['gender'];
 	/* Not used:
-	$_REQUEST['age'];
-	$_REQUEST['gender'];
 	$_REQUEST['submit'];
 	*/
 	
 	//Print the submitted information:
 	echo "<p>Thank you, <b>$name</b>, for the following comments:<br>
 	<tt>$comments</tt></p>
-	<p>We will reply to you at <i>$email</i>.</p>\n";
+	<p>We will reply to you at <i>$email</i>.</p>
+	<p>Your age and gender were entered as <i>$age</i> and <i>$gender</i>, respectively.</p>\n";
 	
 ?>
 </body>
