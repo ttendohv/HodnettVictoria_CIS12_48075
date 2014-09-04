@@ -39,7 +39,10 @@
 		echo '<p><b>Good day, Madam!</b></p>';
 	}else{
 		//No gender selected.
-		echo '<p><b>You forgot to enter your gender!</b></p>';
+		//echo '<p><b>You forgot to enter your gender!</b></p>';
+		?><script type="text/javascript">
+			alert("You forgot to enter your gender!");
+        </script><?php
 	}
 	
 ?>
