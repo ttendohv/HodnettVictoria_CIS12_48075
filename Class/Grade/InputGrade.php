@@ -15,26 +15,13 @@
 
 <body>
 <?php
-	//Initialize the input
-	$score = rand(50,100);
-	$grade = '';
+	//Utilize the built in capabilities of PHP to grab information passed from a form
+	$score = (int)$_GET['score'];
 	//Determine the Grade
-	switch($score >= 90){
-		case true:$grade = 'A';break;
-		default:
-			switch($score >= 80){
-				case true:$grade = 'B';break;
-				default:
-					switch($score >= 70){
-						case true:$grade = 'C';break;
-						default:
-							switch($score >= 60){
-								case true:$grade = 'D';break;
-								default:$grade = 'F';
-							}
-					}
-			}
-	}
+	$grade = ($score>=90)?'A':
+			 (($score>=80)?'B':
+			 (($score>=70)?'C':
+			 (($score>=60)?'D':'F'))); 	
 	//Output the Results
 	echo "<h1>A score of $score = $grade</h1>";
 ?>

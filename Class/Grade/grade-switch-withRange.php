@@ -19,21 +19,17 @@
 	$score = rand(50,100);
 	$grade = '';
 	//Determine the Grade
-	switch($score >= 90){
-		case true:$grade = 'A';break;
+	switch(true){
+		case $score>=90:
+			$grade = 'A';break;
+		case $score >= 80:
+			$grade = 'B';break;
+		case $score >= 70:
+			$grade = 'C';break;
+		case $score >= 60:
+			$grade = 'D';break;
 		default:
-			switch($score >= 80){
-				case true:$grade = 'B';break;
-				default:
-					switch($score >= 70){
-						case true:$grade = 'C';break;
-						default:
-							switch($score >= 60){
-								case true:$grade = 'D';break;
-								default:$grade = 'F';
-							}
-					}
-			}
+			$grade = 'F';break;
 	}
 	//Output the Results
 	echo "<h1>A score of $score = $grade</h1>";

@@ -22,18 +22,22 @@
 	switch($score >= 90){
 		case true:$grade = 'A';break;
 		default:
-			switch($score >= 80){
-				case true:$grade = 'B';break;
-				default:
-					switch($score >= 70){
-						case true:$grade = 'C';break;
-						default:
-							switch($score >= 60){
-								case true:$grade = 'D';break;
-								default:$grade = 'F';
-							}
-					}
-			}
+	}
+	switch($score >= 80 && $score < 90){
+		case true:$grade = 'B';break;
+		default:
+	}
+	switch($score >= 70 && $score < 80){
+		case true:$grade = 'C';break;
+		default:
+	}
+	switch($score >= 60 && $score < 70){
+		case true:$grade = 'D';break;
+		default:
+	}
+	switch($score < 60){
+		case true:$grade = 'F';break;
+		default:
 	}
 	//Output the Results
 	echo "<h1>A score of $score = $grade</h1>";
