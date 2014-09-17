@@ -22,13 +22,13 @@
 	//Check against spectrum
 	if($wavelength>5){
 		echo "Radio Waves";
-	}else if($wavelength>(5*pow(10,-4))){
+	}else if($wavelength>5e-4){
 		echo "Microwaves";
-	}else if($wavelength>(5*pow(10,-6))){
+	}else if($wavelength>5e-6){
 		echo "Infrared waves";
-	}else if($wavelength>(pow(10,-9))){
+	}else if($wavelength>1e-9){
 		echo "Ultraviolet waves";
-	}else if($wavelength>(pow(10,-11))){
+	}else if($wavelength>1e-11){
 		echo "X-rays";
 	}else{
 		echo "Gamma rays";
