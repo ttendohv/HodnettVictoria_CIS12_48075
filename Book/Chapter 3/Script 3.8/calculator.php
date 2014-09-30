@@ -1,25 +1,25 @@
-<?php # Script 3.9 - calculator.php #4
+<?php # Script 3.8 - calculator.php #3
 
 // This function creates a radio button.
-// The function takes two arguments: the value and the name.
+// The function takes one argument: the value.
 // The function also makes the button "sticky".
-function create_radio($value, $name = 'gallon_price') {
+function create_gallon_radio($value) {
 	
 	// Start the element:
-	echo '<input type="radio" name="' . $name .'" value="' . $value . '"';
+	echo '<input type="radio" name="gallon_price" value="' . $value . '"';
 	
 	// Check for stickiness:
-	if (isset($_POST[$name]) && ($_POST[$name] == $value)) {
+	if (isset($_POST['gallon_price']) && ($_POST['gallon_price'] == $value)) {
 		echo ' checked="checked"';
 	} 
 	
 	// Complete the element:
 	echo " /> $value ";
 
-} // End of create_radio() function.
+} // End of create_gallon_radio() function.
 
 $page_title = 'Trip Cost Calculator';
-include ('includes/header.html');
+include ('./header.html');
 
 // Check for form submission:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -51,13 +51,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <form action="calculator.php" method="post">
 	<p>Distance (in miles): <input type="text" name="distance" value="<?php if (isset($_POST['distance'])) echo $_POST['distance']; ?>" /></p>
 	<p>Ave. Price Per Gallon: <span class="input">
-	<?php
-	create_radio('3.00');
-	create_radio('3.50');
-	create_radio('4.00');
+	<?php 
+	create_gallon_radio('3.00');
+	create_gallon_radio('3.50');
+	create_gallon_radio('4.00');
 	?>
 	</span></p>
-	<p>Fuel Efficiency: <select name="efficiency">
+	<p>Fuel Efficiency:
+	<select name="efficiency">
 		<option value="10"<?php if (isset($_POST['efficiency']) && ($_POST['efficiency'] == '10')) echo ' selected="selected"'; ?>>Terrible</option>
 		<option value="20"<?php if (isset($_POST['efficiency']) && ($_POST['efficiency'] == '20')) echo ' selected="selected"'; ?>>Decent</option>
 		<option value="30"<?php if (isset($_POST['efficiency']) && ($_POST['efficiency'] == '30')) echo ' selected="selected"'; ?>>Very Good</option>
@@ -66,4 +67,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<p><input type="submit" name="submit" value="Calculate!" /></p>
 </form>
 
-<?php include ('includes/footer.html'); ?>
+<?php include ('./footer.html'); ?>

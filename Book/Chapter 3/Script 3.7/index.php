@@ -7,7 +7,7 @@ function create_ad() {
 } // End of the function definition.
 
 $page_title = 'Welcome to this Site!';
-include ('includes/header.html');
+include ('./header.html');
 
 // Call the function:
 create_ad();
@@ -24,5 +24,5 @@ create_ad();
 // Call the function again:
 create_ad();
 
-include ('includes/footer.html');
+include ('./footer.html');
 ?>

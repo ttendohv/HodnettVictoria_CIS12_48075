@@ -1,6 +1,6 @@
 <?php # Script 3.4 - index.php
 $page_title = 'Welcome to this Site!';
-include ('includes/header.html');
+include ('./header.html');
 ?>
 
 <h1>Content Header</h1>
@@ -10,5 +10,5 @@ include ('includes/header.html');
 	<p>Volutpat at varius sed sollicitudin et, arcu. Vivamus viverra. Nullam turpis. Vestibulum sed etiam. Lorem ipsum sit amet dolore. Nulla facilisi. Sed tortor. Aenean felis. Quisque eros. Cras lobortis commodo metus. Vestibulum vel purus. In eget odio in sapien adipiscing blandit. Quisque augue tortor, facilisis sit amet, aliquam, suscipit vitae, cursus sed, arcu lorem ipsum dolor sit amet.</p>
 
 <?php
-include ('includes/footer.html');
+include ('./footer.html');
 ?>

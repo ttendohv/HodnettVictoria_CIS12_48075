@@ -1,7 +1,25 @@
-<?php # Script 3.6 - calculator.php #2
+<?php # Script 3.9 - calculator.php #4
+
+// This function creates a radio button.
+// The function takes two arguments: the value and the name.
+// The function also makes the button "sticky".
+function create_radio($value, $name = 'gallon_price') {
+	
+	// Start the element:
+	echo '<input type="radio" name="' . $name .'" value="' . $value . '"';
+	
+	// Check for stickiness:
+	if (isset($_POST[$name]) && ($_POST[$name] == $value)) {
+		echo ' checked="checked"';
+	} 
+	
+	// Complete the element:
+	echo " /> $value ";
+
+} // End of create_radio() function.
 
 $page_title = 'Trip Cost Calculator';
-include ('includes/header.html');
+include ('./header.html');
 
 // Check for form submission:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -33,9 +51,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <form action="calculator.php" method="post">
 	<p>Distance (in miles): <input type="text" name="distance" value="<?php if (isset($_POST['distance'])) echo $_POST['distance']; ?>" /></p>
 	<p>Ave. Price Per Gallon: <span class="input">
-		<input type="radio" name="gallon_price" value="3.00" <?php if (isset($_POST['gallon_price']) && ($_POST['gallon_price'] == '3.00')) echo 'checked="checked" '; ?>/> 3.00 
-		<input type="radio" name="gallon_price" value="3.50" <?php if (isset($_POST['gallon_price']) && ($_POST['gallon_price'] == '3.50')) echo 'checked="checked" '; ?>/> 3.50 
-		<input type="radio" name="gallon_price" value="4.00" <?php if (isset($_POST['gallon_price']) && ($_POST['gallon_price'] == '4.00')) echo 'checked="checked" '; ?>/> 4.00
+	<?php
+	create_radio('3.00');
+	create_radio('3.50');
+	create_radio('4.00');
+	?>
 	</span></p>
 	<p>Fuel Efficiency: <select name="efficiency">
 		<option value="10"<?php if (isset($_POST['efficiency']) && ($_POST['efficiency'] == '10')) echo ' selected="selected"'; ?>>Terrible</option>
@@ -46,4 +66,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<p><input type="submit" name="submit" value="Calculate!" /></p>
 </form>
 
-<?php include ('includes/footer.html'); ?>
+<?php include ('./footer.html'); ?>
