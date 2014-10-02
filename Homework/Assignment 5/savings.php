@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+<title>Savings Table</title>
 <?php
 	function fillArray($dep,$rate,$years){
 		$array = array();
@@ -17,7 +17,7 @@
 		}
 		
 		for($i=1;$i<=$years;$i++){
-			$array[0][$i]=i;
+			$array[0][$i]=$i;
 			$array[1][$i]=($array[1][$i-1] * (1 + ($rt++)/100));
 			$array[2][$i]=($array[2][$i-1] * (1 + ($rt++)/100));
 			$array[3][$i]=($array[3][$i-1] * (1 + ($rt++)/100));
@@ -27,7 +27,7 @@
 			$rt = $rate;
 		}
 		
-		displayArray($array);
+		return $array;
 	}
 	
 	function displayArray($array){
@@ -47,7 +47,11 @@
 		for($i=0;$i<$row;$i++){
 			echo "<tr>";
 			for($j=0;$j<$col;$j++){
-				echo "<td>".($array[$i][$j])."</td>";
+				if($j==0){
+					echo "<td>".($array[$j][$i])."</td>";
+				}else{
+					echo "<td>".number_format($array[$j][$i],2)."</td>";
+				}
 			}
 			echo "</tr>";
 		}
@@ -61,8 +65,9 @@
 	//Declare variables
 	$initDep = 100;
 	$initIntRate = 5;
-	$years = 50;
-	fillArray(initDep,initIntRate,years);
+	$years = $_GET['years'];
+	$savingsTable=fillArray($initDep,$initIntRate,$years);
+	displayArray($savingsTable);
 ?>
 </body>
 </html>
