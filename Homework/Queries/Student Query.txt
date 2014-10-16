@@ -1,0 +1,1 @@
+SELECT `entity_student_vh2436779`.`first_name` AS `First Name`, `entity_student_vh2436779`.`last_name` AS `Last Name`, `enum_major_vh2436779`.`major` AS `Major` FROM `test`.`entity_student_vh2436779` AS `entity_student_vh2436779`, `test`.`enum_major_vh2436779` AS `enum_major_vh2436779` WHERE `entity_student_vh2436779`.`major` = `enum_major_vh2436779`.`major_id`
