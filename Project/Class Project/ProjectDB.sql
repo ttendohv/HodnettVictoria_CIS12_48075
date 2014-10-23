@@ -53,9 +53,12 @@ CREATE TABLE entity_admin_vh2436779 (
 	email VARCHAR(60) NOT NULL, 
 	pass CHAR(40) NOT NULL, 
 	pin SMALLINT NOT NULL, 
-	PRIMARY KEY (user_id)
+	PRIMARY KEY (admin_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+INSERT INTO `entity_admin_vh2436779` (`first_name`,`last_name`, `email`, `pass`, `pin`)
+VALUES ('Victoria','Hodnett','vhodnett1@student.rcc.edu',SHA1(2436779),1010);
 
 
 --
@@ -68,15 +71,18 @@ DROP TABLE IF EXISTS `entity_lessons_vh2436779`;
 
 CREATE TABLE entity_lessons_vh2436779 (
 	lesson_id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
-	type TINYINT[1] NOT NULL,
+	lesson_type TINYINT[1] NOT NULL,
 	duration TINYINT[2] NOT NULL,
-	day TINYINT[1] NOT NULL,
-	time TIME NOT NULL,
-	level TINYINT[1] NOT NULL,
+	lesson_day TINYINT[1] NOT NULL,
+	lesson_time TIME NOT NULL,
+	difficulty TINYINT[1] NOT NULL,
 	cost FLOAT[3,2] NOT NULL,
 	PRIMARY KEY (lesson_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--INSERT INTO `entity_lessons_vh2436779` (`lesson_type`,`duration`,`lesson_day`,`lesson_time`,`difficulty`,`cost`)
+--VALUES ();
 
 
 --               --
@@ -87,17 +93,19 @@ CREATE TABLE entity_lessons_vh2436779 (
 -- Table structure for table `enum_level_vh2436779`
 --
 
-DROP TABLE IF EXISTS `enum_level_vh2436779`;
+DROP TABLE IF EXISTS `enum_difficulty_vh2436779`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 
-CREATE TABLE enum_level_vh2436779 (
-	level_id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE enum_difficulty_vh2436779 (
+	difficulty_id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
 	name VARCHAR(15) NOT NULL,
 	PRIMARY KEY (level_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+INSERT INTO `enum_difficulty_vh2436779` (`name`)
+VALUES ('Beginner'),('Intermediate'),('Advanced');
 
 --
 -- Table structure for table `enum_lessontype_vh2436779`
@@ -114,6 +122,8 @@ CREATE TABLE enum_lessontype_vh2436779 (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+INSERT INTO `enum_lessontype_vh2436779` (`name`)
+VALUES ('Vocal'),('Guitar'),('Bass'),('Drums'),('Piano');
 
 --
 -- Table structure for table `enum_lessonday_vh2436779`
@@ -126,8 +136,29 @@ DROP TABLE IF EXISTS `enum_lessonday_vh2436779`;
 CREATE TABLE enum_lessonday_vh2436779 (
 	day_id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
 	name VARCHAR(10) NOT NULL,
-	abbreviation VARCHAR(1) NOT NULL,
+	abbreviation VARCHAR(2) NOT NULL,
 	PRIMARY KEY (day_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+INSERT INTO `enum_lessonday_vh2436779` (`name`,`abbreviation`)
+VALUES ('Monday','M'),('Tuesday','T'),('Wednesday','W'),('Thursday','TH'),('Friday','F');
+
+--
+-- Table structure for table `enum_starttime_vh2436779`
+--
+
+DROP TABLE IF EXISTS `enum_starttime_vh2436779`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+
+CREATE TABLE enum_starttime_vh2436779 (
+	time_id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+	start_time TIME NOT NULL,
+	PRIMARY KEY (time_id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+INSERT INTO `enum_starttime_vh2436779` (`start_time`)
+VALUES (09:00:00),(09:30:00),(10:00:00),(10:30:00),(11:00:00),(11:30:00),(13:00:00),(13:30:00),
+		(14:00:00),(14:30:00),(15:00:00),(15:30:00),(16:00:00),(16:30:00),(17:00:00),(17:30:00);
