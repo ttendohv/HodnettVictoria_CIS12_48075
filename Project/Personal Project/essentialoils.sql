@@ -50,10 +50,10 @@ DROP TABLE IF EXISTS `entity_oil_vh2436779`;
 CREATE TABLE entity_oil_vh2436779 (
 	oil_id INT UNSIGNED NOT NULL AUTO_INCREMENT, 
 	name VARCHAR(20) NOT NULL, 
-	properties VARCHAR(40) NOT NULL, 
-	health_benefits VARCHAR(60) NOT NULL, 
-	application CHAR(40) NOT NULL, 
-	uses SMALLINT NOT NULL,  
+	properties SET NOT NULL, 
+	health_benefits SET NOT NULL, 
+	application SET NOT NULL, 
+	uses SET NOT NULL,  
 	PRIMARY KEY (oil_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -69,7 +69,7 @@ DROP TABLE IF EXISTS `entity_question_vh2436779`;
 
 CREATE TABLE entity_question_vh2436779 (
 	question_id INT UNSIGNED NOT NULL AUTO_INCREMENT, 
-	question VARCHAR(20) NOT NULL,  
+	question TEXT NOT NULL,  
 	PRIMARY KEY (question_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -108,5 +108,52 @@ CREATE TABLE enum_application_vh2436779 (
 	application_id INT UNSIGNED NOT NULL AUTO_INCREMENT, 
 	name VARCHAR(20) NOT NULL,  
 	PRIMARY KEY (application_id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+-- 
+-- Table structure for table `enum_property_vh2436779`
+--
+
+DROP TABLE IF EXISTS `enum_property_vh2436779`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+
+CREATE TABLE enum_property_vh2436779 (
+	property_id INT UNSIGNED NOT NULL AUTO_INCREMENT, 
+	name VARCHAR(20) NOT NULL,  
+	PRIMARY KEY (property_id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+-- 
+-- Table structure for table `enum_benefit_vh2436779`
+--
+
+DROP TABLE IF EXISTS `enum_benefit_vh2436779`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+
+CREATE TABLE enum_benefit_vh2436779 (
+	benefit_id INT UNSIGNED NOT NULL AUTO_INCREMENT, 
+	name VARCHAR(20) NOT NULL,  
+	PRIMARY KEY (benefit_id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+-- 
+-- Table structure for table `enum_use_vh2436779`
+--
+
+DROP TABLE IF EXISTS `enum_use_vh2436779`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+
+CREATE TABLE enum_use_vh2436779 (
+	use_id INT UNSIGNED NOT NULL AUTO_INCREMENT, 
+	name VARCHAR(20) NOT NULL,  
+	PRIMARY KEY (use_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
