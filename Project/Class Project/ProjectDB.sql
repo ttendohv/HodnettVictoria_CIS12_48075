@@ -81,8 +81,8 @@ CREATE TABLE entity_lessons_vh2436779 (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---INSERT INTO `entity_lessons_vh2436779` (`lesson_type`,`duration`,`lesson_day`,`lesson_time`,`difficulty`,`cost`)
---VALUES ();
+INSERT INTO `entity_lessons_vh2436779` (`lesson_type`,`duration`,`lesson_day`,`lesson_time`,`difficulty`,`cost`)
+VALUES ();
 
 
 --               --
@@ -160,5 +160,5 @@ CREATE TABLE enum_starttime_vh2436779 (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 INSERT INTO `enum_starttime_vh2436779` (`start_time`)
-VALUES (09:00:00),(09:30:00),(10:00:00),(10:30:00),(11:00:00),(11:30:00),(13:00:00),(13:30:00),
-		(14:00:00),(14:30:00),(15:00:00),(15:30:00),(16:00:00),(16:30:00),(17:00:00),(17:30:00);
+VALUES (08:00:00),(08:30:00),(09:00:00),(09:30:00),(10:00:00),(10:30:00),(11:00:00),(11:30:00),(13:00:00),(13:30:00),
+		(14:00:00),(14:30:00),(15:00:00),(15:30:00),(16:00:00),(16:30:00),(17:00:00),(17:30:00),(18:00:00),(18:30:00);
