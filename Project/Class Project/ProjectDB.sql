@@ -33,6 +33,7 @@ CREATE TABLE entity_users_vh2436779 (
 	pass CHAR(40) NOT NULL, 
 	pin SMALLINT NOT NULL, 
 	registration_date DATETIME NOT NULL, 
+	lesson_id TINYINT UNSIGNED, -- User can only register for one lesson at a time -- 
 	PRIMARY KEY (user_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -77,6 +78,7 @@ CREATE TABLE entity_lessons_vh2436779 (
 	lesson_time TIME NOT NULL,
 	difficulty TINYINT[1] NOT NULL,
 	cost FLOAT[3,2] NOT NULL,
+	scheduled TINYINT[1] NOT NULL,
 	PRIMARY KEY (lesson_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -99,7 +101,7 @@ DROP TABLE IF EXISTS `enum_difficulty_vh2436779`;
 
 CREATE TABLE enum_difficulty_vh2436779 (
 	difficulty_id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
-	name VARCHAR(15) NOT NULL,
+	difficulty_name VARCHAR(15) NOT NULL,
 	PRIMARY KEY (level_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -117,7 +119,7 @@ DROP TABLE IF EXISTS `enum_lessontype_vh2436779`;
 
 CREATE TABLE enum_lessontype_vh2436779 (
 	type_id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
-	name VARCHAR(10) NOT NULL,
+	type_name VARCHAR(10) NOT NULL,
 	PRIMARY KEY (type_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -135,7 +137,7 @@ DROP TABLE IF EXISTS `enum_lessonday_vh2436779`;
 
 CREATE TABLE enum_lessonday_vh2436779 (
 	day_id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
-	name VARCHAR(10) NOT NULL,
+	day_name VARCHAR(10) NOT NULL,
 	abbreviation VARCHAR(2) NOT NULL,
 	PRIMARY KEY (day_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

@@ -1,12 +1,7 @@
-lesson type 1-5, 
-duration 1-2, 
-lesson day 1-5, 
-lesson time 1-20, 
-difficulty 1-3, 
-cost beg $30 int $45 adv $60 ...if 60min x2
+<?php
 
 $query="INSERT INTO `entity_lessons_vh2436779` 
-(`lesson_type`,`duration`,`lesson_day`,`lesson_time`,`difficulty`,`cost`) VALUES ";
+(`lesson_type`,`duration`,`lesson_day`,`lesson_time`,`difficulty`,`cost`,`scheduled`) VALUES ";
 $records=100;
 
 for($i=1;$i<=$records;$i++){//Number of total available lessons
@@ -26,28 +21,32 @@ for($i=1;$i<=$records;$i++){//Number of total available lessons
 			switch($difficulty){//Cost of lesson
 				case 1:
 					if($duration==1){
-						$query.=(30).")";
+						$query.=(30).",";
 					}else{
-						$query.=(60).")";
+						$query.=(60).",";
 					}
 					break;
 				case 2:
 					if($duration==1){
-						$query.=(45).")";
+						$query.=(45).",";
 					}else{
-						$query.=(90).")";
+						$query.=(90).",";
 					}
 					break;
 				case 3:
 					if($duration==1){
-						$query.=(60).")";
+						$query.=(60).",";
 					}else{
-						$query.=(120).")";
+						$query.=(120).",";
 					}
 					break;
 			}
-		if($i!=$records)$query.=",";
+			$query.=(0).")"; //Scheduled? all set to 0-false
 		}
+		if($i!=$records)$query.=",";
 	}
 }
 
+
+
+?>
