@@ -83,9 +83,6 @@ CREATE TABLE entity_lessons_vh2436779 (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-INSERT INTO `entity_lessons_vh2436779` (`lesson_type`,`duration`,`lesson_day`,`lesson_time`,`difficulty`,`cost`)
-VALUES ();
-
 
 --               --
 -- ENUM TABLES   --
